@@ -77,4 +77,23 @@ public class UserModuleMethods extends DriverScript{
 		}
 	}
 
+	public boolean deleteUser11(WebDriver oBrowser, String userName) {
+		try {
+			report.writeReport(oBrowser, "Screenshot", "Before deleting the user");
+			Assert.assertTrue(appInd.clickObject(oBrowser, By.xpath("//div[@class='name']/span[text()='"+userName+"']")));
+			appInd.waitForElement(oBrowser, UserPage.obj_DeleteUser_Button, "Clickable", "", 10);
+			Assert.assertTrue(appInd.clickObject(oBrowser, UserPage.obj_DeleteUser_Button));
+			appInd.waitForElement(oBrowser, null, "Alert", "", 10);
+			oBrowser.switchTo().alert().accept();
+			appInd.waitForElement(oBrowser, UserPage.obj_DeleteUser_Button, "invisible", "", 10);
+			report.writeReport(oBrowser, "Screenshot", "After deleting the user");
+			return appInd.verifyElementNotPresent(oBrowser, By.xpath("//div[@class='name']/span[text()='"+userName+"']"));
+		}catch(Exception e) {
+			System.out.println("Exception in 'deleteUser() method'. " + e);
+			return false;
+		}catch(AssertionError e) {
+			report.writeReport(oBrowser, "Exception", "Assert Error in 'deleteUser() method'. " + e);
+			return false;
+		}
+	}
 }
