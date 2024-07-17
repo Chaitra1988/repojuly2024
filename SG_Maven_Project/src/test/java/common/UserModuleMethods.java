@@ -48,6 +48,9 @@ public class UserModuleMethods extends DriverScript{
 		}finally {userName = null;}
 	}
 	
+	
+	
+	
 	/**********************************************
 	 * Method Name		: deleteUser()
 	 * Purpose			: it is to delete the user
