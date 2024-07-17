@@ -8,6 +8,7 @@ import driver.DriverScript;
 import pages.UserPage;
 
 public class UserModuleMethods extends DriverScript{
+	
 	/**********************************************
 	 * Method Name		: createUser()
 	 * Purpose			: it is used to create the new user
@@ -46,8 +47,6 @@ public class UserModuleMethods extends DriverScript{
 			return null;
 		}finally {userName = null;}
 	}
-	
-	
 	
 	/**********************************************
 	 * Method Name		: deleteUser()
